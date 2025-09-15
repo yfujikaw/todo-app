@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Todo } from '../../types/todo';
 import TodoItem from '../TodoItem/TodoItem';
 import './TodoList.css';
@@ -9,7 +9,7 @@ interface TodoListProps {
   onDeleteTodo: (id: string) => void;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ todos, onToggleTodo, onDeleteTodo }) => {
+const TodoList: React.FC<TodoListProps> = memo(({ todos, onToggleTodo, onDeleteTodo }) => {
   if (todos.length === 0) {
     return (
       <div className="empty-state">
@@ -34,6 +34,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onToggleTodo, onDeleteTodo }
       </ul>
     </div>
   );
-};
+});
+
+TodoList.displayName = 'TodoList';
 
 export default TodoList;
