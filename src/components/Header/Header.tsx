@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './Header.css';
 
 interface HeaderProps {
@@ -6,7 +6,7 @@ interface HeaderProps {
   completedTodos: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ totalTodos, completedTodos }) => {
+const Header: React.FC<HeaderProps> = memo(({ totalTodos, completedTodos }) => {
   return (
     <header className="header">
       <div className="header-content">
@@ -20,6 +20,8 @@ const Header: React.FC<HeaderProps> = ({ totalTodos, completedTodos }) => {
       </div>
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';
 
 export default Header;

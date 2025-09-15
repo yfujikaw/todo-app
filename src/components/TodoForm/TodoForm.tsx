@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import './TodoForm.css';
 
 interface TodoFormProps {
@@ -8,7 +8,7 @@ interface TodoFormProps {
 const MAX_LENGTH = 200;
 const WARNING_LENGTH = 180;
 
-const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
+const TodoForm: React.FC<TodoFormProps> = memo(({ onAddTodo }) => {
   const [inputValue, setInputValue] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -90,6 +90,8 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
       </form>
     </div>
   );
-};
+});
+
+TodoForm.displayName = 'TodoForm';
 
 export default TodoForm;

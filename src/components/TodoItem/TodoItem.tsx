@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Todo } from '../../types/todo';
 import './TodoItem.css';
 
@@ -8,7 +8,7 @@ interface TodoItemProps {
   onDelete: (id: string) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
+const TodoItem: React.FC<TodoItemProps> = memo(({ todo, onToggle, onDelete }) => {
   const handleToggle = () => {
     onToggle(todo.id);
   };
@@ -53,6 +53,8 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
       </div>
     </li>
   );
-};
+});
+
+TodoItem.displayName = 'TodoItem';
 
 export default TodoItem;
