@@ -44,16 +44,17 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.container p {
+.todo-content {
+  padding: 30px;
+  text-align: center;
+}
+
+.todo-content p {
   font-size: 1.1rem;
   color: #666;
-  text-align: center;
-  padding: 40px;
+  margin-bottom: 10px;
 }
 
 /* レスポンシブデザイン */
@@ -67,9 +68,12 @@ body {
     min-height: 250px;
   }
   
-  .container p {
+  .todo-content {
+    padding: 20px;
+  }
+  
+  .todo-content p {
     font-size: 1rem;
-    padding: 30px 20px;
   }
 }
 
@@ -79,8 +83,12 @@ body {
     min-height: 200px;
   }
   
-  .container p {
+  .todo-content {
+    padding: 15px;
+  }
+  
+  .todo-content p {
     font-size: 0.9rem;
-    padding: 20px 15px;
   }
 }
+
