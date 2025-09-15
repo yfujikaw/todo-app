@@ -46,16 +46,7 @@ body {
   min-height: 300px;
 }
 
-.todo-content {
-  padding: 30px;
-  text-align: center;
-}
-
-.todo-content p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 10px;
-}
+/* TodoListコンテナのスタイルは各コンポーネントのCSSで管理 */
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
@@ -67,28 +58,12 @@ body {
     border-radius: 15px;
     min-height: 250px;
   }
-  
-  .todo-content {
-    padding: 20px;
-  }
-  
-  .todo-content p {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
   .container {
     border-radius: 10px;
     min-height: 200px;
-  }
-  
-  .todo-content {
-    padding: 15px;
-  }
-  
-  .todo-content p {
-    font-size: 0.9rem;
   }
 }
 

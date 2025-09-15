@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import TodoForm from './components/TodoForm/TodoForm';
+import TodoList from './components/TodoList/TodoList';
 import { Todo } from './types/todo';
 import { loadTodos, saveTodos, generateUUID } from './utils/storage';
 import './App.css';
@@ -28,6 +29,24 @@ function App() {
     saveTodos(updatedTodos);
   };
 
+  // TODOの完了状態切り替え
+  const handleToggleTodo = (id: string) => {
+    const updatedTodos = todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    );
+    setTodos(updatedTodos);
+    saveTodos(updatedTodos);
+  };
+
+  // TODOの削除
+  const handleDeleteTodo = (id: string) => {
+    if (window.confirm('このタスクを削除しますか？')) {
+      const updatedTodos = todos.filter(todo => todo.id !== id);
+      setTodos(updatedTodos);
+      saveTodos(updatedTodos);
+    }
+  };
+
   // 統計情報の計算
   const totalTodos = todos.length;
   const completedTodos = todos.filter(todo => todo.completed).length;
@@ -38,10 +57,11 @@ function App() {
       <main className="main-content">
         <div className="container">
           <TodoForm onAddTodo={handleAddTodo} />
-          <div className="todo-content">
-            <p>TODOリストがここに表示されます（次のIssueで実装予定）</p>
-            <p>現在のTODO数: {totalTodos}件</p>
-          </div>
+          <TodoList
+            todos={todos}
+            onToggleTodo={handleToggleTodo}
+            onDeleteTodo={handleDeleteTodo}
+          />
         </div>
       </main>
     </div>

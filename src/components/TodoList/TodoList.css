@@ -1,0 +1,83 @@
+.todo-list-container {
+  padding: 20px 30px;
+  min-height: 200px;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #495057;
+  font-weight: 600;
+}
+
+.empty-message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .todo-list-container {
+    padding: 15px 20px;
+  }
+  
+  .empty-state {
+    padding: 40px 15px;
+  }
+  
+  .empty-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+  
+  .empty-title {
+    font-size: 1.3rem;
+  }
+  
+  .empty-message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-list-container {
+    padding: 10px 15px;
+  }
+  
+  .empty-state {
+    padding: 30px 10px;
+  }
+  
+  .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .empty-title {
+    font-size: 1.2rem;
+  }
+  
+  .empty-message {
+    font-size: 0.9rem;
+  }
+}
